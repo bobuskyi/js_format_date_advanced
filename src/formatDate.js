@@ -1,11 +1,5 @@
 'use strict';
 
-// formatDate(
-//   '2020-02-18',
-//   ['YYYY', 'MM', 'DD', '-'],
-//   ['YYYY', 'MM', 'DD', '.'],
-// ); // '2020.02.18'
-
 /**
  * @param {string} date
  * @param {string[]} fromFormat
