@@ -1,5 +1,11 @@
 'use strict';
 
+// formatDate(
+//   '2020-02-18',
+//   ['YYYY', 'MM', 'DD', '-'],
+//   ['YYYY', 'MM', 'DD', '.'],
+// ); // '2020.02.18'
+
 /**
  * @param {string} date
  * @param {string[]} fromFormat
@@ -15,8 +21,8 @@ function formatDate(date, fromFormat, toFormat) {
   let yearTo = '';
   let result = '';
 
-  for (let i = 0; i < fromFormat.length - 1; i++) {
-    if (fromFormat[i].indexOf('YY') !== -1) {
+  for (let i = 0; i < fromFormat.length; i++) {
+    if (fromFormat[i].indexOf('Y') !== -1) {
       yearFrom = fromFormat[i];
     }
 
@@ -25,7 +31,7 @@ function formatDate(date, fromFormat, toFormat) {
 
   for (let i = 0; i < toFormat.length; i++) {
     if (i < 3) {
-      if (toFormat[i].indexOf('YY') !== -1) {
+      if (toFormat[i].indexOf('Y') !== -1) {
         yearTo = toFormat[i];
 
         result += formatYear(formatedDate[yearFrom], yearFrom, yearTo) + ' ';
@@ -42,7 +48,7 @@ function formatDate(date, fromFormat, toFormat) {
   return String(result);
 }
 
-function formatYear(year, yearFrom, yearTo) {
+function formatYear(year, yearFrom = '', yearTo = '') {
   if (yearFrom === 'YYYY' && yearTo === 'YY') {
     return year.slice(-2);
   }
