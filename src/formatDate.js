@@ -30,7 +30,7 @@ function formatDate(date, fromFormat, toFormat) {
   }
 
   for (let i = 0; i < toFormat.length; i++) {
-    if (i < 3) {
+    if (toFormat[i].toLocaleLowerCase() !== toFormat[i].toLocaleUpperCase()) {
       if (toFormat[i].indexOf('Y') !== -1) {
         yearTo = toFormat[i];
 
@@ -38,9 +38,7 @@ function formatDate(date, fromFormat, toFormat) {
       } else {
         result += formatedDate[toFormat[i]] + ' ';
       }
-    }
-
-    if (i === 3) {
+    } else {
       result = result.trim().replaceAll(' ', toFormat[i]);
     }
   }
